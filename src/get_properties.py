@@ -53,7 +53,7 @@ def saveWardSales(ward=1,page=1,verbose=False):
         page += 1
 
     ward_df = pd.concat(page_dfs,ignore_index=True)
-    ward_df.to_csv("data/ward%d.csv" % (ward),index=False)
+    ward_df.to_csv("../data/ward%d.csv" % (ward),index=False)
     return ward_df
 
 def getDetails(ssl,br=None):
@@ -136,13 +136,13 @@ if __name__ == "__main__":
 
     if sys.argv[1]=="features":
         print "getting features.."
-        all_wards = pd.read_csv("data/sales.csv")
+        all_wards = pd.read_csv("../data/sales.csv")
         ssls=all_wards['ssl']
-        mapSave(getFeatures,ssls,"data/features.csv") 
+        mapSave(getFeatures,ssls,"../data/features.csv") 
     elif sys.argv[1]=="details":
         # details
         print "getting details.."
-        all_wards = pd.read_csv("data/sales.csv")
+        all_wards = pd.read_csv("../data/sales.csv")
         ssls=all_wards['ssl']
-        mapSave(getDetails,ssls,"data/details.csv") 
+        mapSave(getDetails,ssls,"../data/details.csv") 
 
